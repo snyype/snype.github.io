@@ -1,5 +1,102 @@
+<!DOCTYPE html>
 <html>
+<head>
+    <title>Game Settings and Profiles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .settings-form, .profiles-form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .profiles-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .profile-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
 <body>
-<h>HELLO WORLD</h>
+    <div class="container">
+        <h1>Game Settings and Profiles</h1>
+        
+        <!-- Game Settings Form -->
+        <div class="settings-form">
+            <h2>Game Settings</h2>
+            <form>
+                <label for="gameName">Game Name:</label>
+                <input type="text" id="gameName" name="gameName" placeholder="Enter game name" required>
+                
+                <label for="resolution">Resolution:</label>
+                <select id="resolution" name="resolution">
+                    <option value="1920x1080">1920x1080</option>
+                    <option value="1280x720">1280x720</option>
+                    <option value="2560x1440">2560x1440</option>
+                </select>
+                
+                <input type="submit" value="Save Settings">
+            </form>
+        </div>
+
+        <!-- Profiles Form -->
+        <div class="profiles-form">
+            <h2>Profiles</h2>
+            <form>
+                <label for="profileName">Profile Name:</label>
+                <input type="text" id="profileName" name="profileName" placeholder="Enter profile name" required>
+                
+                <label for="profileSettings">Profile Settings:</label>
+                <select id="profileSettings" name="profileSettings">
+                    <!-- Add options here for different profiles -->
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                
+                <input type="submit" value="Save Profile">
+            </form>
+        </div>
+
+        <!-- List of Profiles -->
+        <div class="profiles-list">
+            <h2>Existing Profiles</h2>
+            <ul>
+                <li class="profile-item">Profile 1 - Settings: Low</li>
+                <li class="profile-item">Profile 2 - Settings: High</li>
+                <!-- Add more profile items here dynamically using JavaScript or a backend database -->
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
