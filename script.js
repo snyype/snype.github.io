@@ -22,7 +22,7 @@ document.getElementById('downloadButton').addEventListener('click', function () 
     return new Promise((resolve, reject) => {
       // Replace ":owner", ":repo", and ":path" with your GitHub repository details.
       // For example: https://api.github.com/repos/yourusername/yourrepository/contents/csgo/autoexec.cfg
-      const url = `https://api.github.com/repos/snyype/snyype.github.io/${game}/autoexec.cfg`;
+      const url = `https://api.github.com/repos/snyype/snyype.github.io/contents/${game}/autoexec.cfg`;
   
       // Perform the AJAX request to fetch the file content.
       fetch(url)
