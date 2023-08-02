@@ -50,6 +50,8 @@ body {
 
   #selectedGameLaunchOption {
     font-weight: bold;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     /* Access the color property from the launchOptionsMap */
     color: var(--selectedGameColor, red); /* Use black as the default color if not specified */
   }
