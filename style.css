@@ -34,8 +34,35 @@ body {
     border-radius: 4px;
     cursor: pointer;
   }
+  #showButton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #0c7747;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
   
   #downloadButton:hover {
     background-color: #0056b3;
   }
+
+  #selectedGameLaunchOption {
+    font-weight: bold;
+    border: 2px solid;
+    border-color: #0c7747;
+    border-radius: 2px;
+    text-align: center;
+    /* Access the color property from the launchOptionsMap */
+    color: var(--selectedGameColor, red);
+    font-size: larger;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Use black as the default color if not specified */
+  }
+  #colorForLaunchOption {
+    font-weight: bold;
+    /* Access the color property from the launchOptionsMap */
+    color: var(--selectedGameColor, red); /* Use black as the default color if not specified */
+  }
+  
   

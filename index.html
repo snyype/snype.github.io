@@ -36,7 +36,21 @@
     </select>
     <button id="downloadButton">Download autoexec.cfg</button>
   </div>
+
+  <div class="dropdown">
+    <select id="selectGameLaunchOption">
+      <option value="" disabled selected>Select a game</option>
+      <option value="csgo">CS:GO</option>
+      <option value="valorant">Valorant</option>
+      <option value="dota">Dota 2</option>
+    </select>
+    <button id="showButton">Show Launch Options</button>
+    </div>
+
+
+  
   <p id="selectedGameText"></p>
+  <p class="colorForLaunchOption" id="selectedGameLaunchOption"></p>
 
   <script src="script.js"></script>
 </body>
