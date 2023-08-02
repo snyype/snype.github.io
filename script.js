@@ -1,9 +1,10 @@
+// JavaScript with updated GitHub API URL
 document.getElementById('downloadButton').addEventListener('click', function () {
     const selectedGame = document.getElementById('selectGame').value;
     if (selectedGame !== '') {
-      let filename = 'autoexec.cfg'; // Set the filename to 'autoexec.cfg'
+      let filename = 'autoexec.cfg';
   
-      // Fetch the content for each game's autoexec.cfg using GitHub API
+      // Fetch the content for each game's autoexec.cfg using the GitHub API
       fetchFileContent(selectedGame)
         .then((fileContent) => {
           downloadFile(filename, fileContent);
@@ -20,12 +21,10 @@ document.getElementById('downloadButton').addEventListener('click', function () 
   
   function fetchFileContent(game) {
     return new Promise((resolve, reject) => {
-      // Replace ":owner", ":repo", and ":path" with your GitHub repository details.
-      // For example: https://api.github.com/repos/yourusername/yourrepository/contents/csgo/autoexec.cfg
-      const url = `https://api.github.com/repos/snyype/snyype.github.io/contents/${game}/autoexec.cfg`;
+      // Replace 'snyype' with your GitHub username and 'snyype.github.io' with your repository name
+      const apiUrl = `https://api.github.com/repos/snyype/snyype.github.io/contents/${game}/autoexec.cfg`;
   
-      // Perform the AJAX request to fetch the file content.
-      fetch(url)
+      fetch(apiUrl)
         .then((response) => {
           if (!response.ok) {
             throw new Error('File not found or server error');
