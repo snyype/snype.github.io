@@ -50,14 +50,8 @@ body {
 
   #selectedGameLaunchOption {
     font-weight: bold;
-    border: 2px solid;
-    border-color: #0c7747;
-    border-radius: 2px;
-    text-align: center;
     /* Access the color property from the launchOptionsMap */
-    color: var(--selectedGameColor, red);
-    font-size: larger;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Use black as the default color if not specified */
+    color: var(--selectedGameColor, red); /* Use black as the default color if not specified */
   }
   #colorForLaunchOption {
     font-weight: bold;
