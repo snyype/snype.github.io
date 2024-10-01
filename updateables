@@ -2,4 +2,4 @@
 launch_option=-novid -high -refresh 144 +exec autoexec.cfg
 
 [dota2]
-launch_option=-dx11 -console -refresh 144
+launch_option=-dx11 -novid +con_enable 1 +map_enable_background_maps 0 -nojoy -console
