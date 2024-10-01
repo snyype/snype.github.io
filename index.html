@@ -1,64 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SnYpe</title>
-  <link rel="stylesheet" href="style.css">
+  <title>SnYpe Forum</title>
   <link rel="icon" href="logo/snype.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-<body>
 
-<div>
-  <a style="text-decoration: none;" href="csgo/admit.pdf" alt="CSGO Logo" download>Download pdf</a>
-</div>
+<body class="bg-gray-100 text-gray-800">
 
-
-  <h1>SnYpe Game Details</h1>
-  
-  <div style="margin-right: 5%;" class="game">
-    <img src="csgo/cs_logo.jpg" alt="CSGO Logo">
-    <h2>Counter-Strike: Global Offensive</h2>
-    <p style="margin-left: 10px;">CS:GO is a first-person shooter game developed by Valve.</p>
-  </div>
-  
-  <div class="game">
-    <img src="valorant/valo_logo.jpg" alt="Valorant Logo">
-    <h2>Valorant</h2>
-    <p style="margin-left: 10px;">Valorant is a tactical first-person shooter game developed by Riot Games.</p>
-  </div>
-  
-  <div class="game">
-    <img src="dota/dota_logo.jpg" alt="Dota 2 Logo">
-    <h2>Dota 2</h2>
-    <p style="margin-left: 15px;">Dota 2 is a multiplayer online battle arena game developed by Valve.</p>
-  </div>
-
-  <div class="dropdown">
-    <select id="selectGame">
-      <option value="" disabled selected>Select a game</option>
-      <option value="csgo">CS:GO</option>
-      <option value="valorant">Valorant</option>
-      <option value="dota">Dota 2</option>
-    </select>
-    <button id="downloadButton">Download autoexec.cfg</button>
-  </div>
-
-  <div class="dropdown">
-    <select id="selectGameLaunchOption">
-      <option value="" disabled selected>Select a game</option>
-      <option value="csgo">CS:GO</option>
-      <option value="valorant">Valorant</option>
-      <option value="dota">Dota 2</option>
-    </select>
-    <button id="showButton">Show Launch Options</button>
+  <!-- Header -->
+  <header class="bg-indigo-700 py-6">
+    <div class="max-w-7xl mx-auto text-center">
+      <h1 class="text-white text-4xl font-bold">CONFIGS</h1>
+      <p class="text-indigo-200 mt-2">Get Configs for your game</p>
     </div>
+  </header>
 
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto mt-8 p-6 bg-white rounded-lg shadow-lg">
+    <!-- Forum Post -->
+    <section class="forum-post border-b-2 pb-6 mb-6">
+      <div class="flex items-center mb-4">
+        <img src="/csgo/cs_logo.jpg" alt="User Avatar" class="w-12 h-12 rounded-full shadow-lg">
+        <div class="ml-4">
+          <h2 class="text-xl font-semibold text-gray-900">Counter-Strike: Global Offensive</h2>
+          <p class="text-sm text-gray-500">Posted by <span class="text-indigo-600">snype</span> on Sep 30, 2024</p>
+        </div>
+      </div>
+      <p class="text-gray-700 mb-4">
+        CS:GO is a first-person shooter game developed by Valve. It features competitive gameplay, various maps, and
+        community-created content. What's your favorite map and why?
+      </p>
+      <div class="flex items-center space-x-4">
 
-  
-  <p id="selectedGameText"></p>
-  <p class="colorForLaunchOption" id="selectedGameLaunchOption"></p>
+        <button id="copy-csgo-launch-option"
+          class="flex items-center text-indigo-600 hover:text-indigo-800 transition duration-300">
+          <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6M12 9v6"></path>
+          </svg>
+          Copy Launch Option
+        </button>
+      </div>
+      <button id="download-config"
+        class="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg shadow-lg hover:bg-green-600 transition duration-300">Download
+        Config</button>
+    </section>
 
-  <script src="script.js"></script>
+    <!-- Forum Post -->
+    <section class="forum-post border-b-2 pb-6 mb-6">
+      <div class="flex items-center mb-4">
+        <img src="/dota/dota_logo.jpg" alt="User Avatar" class="w-12 h-12 rounded-full shadow-lg">
+        <div class="ml-4">
+          <h2 class="text-xl font-semibold text-gray-900">Dota 2</h2>
+          <p class="text-sm text-gray-500">Posted by <span class="text-indigo-600">snype</span> on Sep 29, 2024</p>
+        </div>
+      </div>
+      <p class="text-gray-700 mb-4">
+        Dota 2 is a multiplayer online battle arena game developed by Valve.
+      </p>
+      <div class="flex items-center space-x-4">
+        <button id="copy-dota2-launch-option"
+          class="flex items-center text-indigo-600 hover:text-indigo-800 transition duration-300">
+          <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6M12 9v6"></path>
+          </svg>
+          Copy Launch Option
+        </button>
+      </div>
+      <button id="download-config-dota"
+        class="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg shadow-lg hover:bg-green-600 transition duration-300">Download
+        Config</button>
+    </section>
+
+  </main>
+
+  <script>
+    // Function to fetch .updateables file and parse its content
+    async function fetchLaunchOptions() {
+      const response = await fetch('/updateables'); // Assuming the .updateables file is in the root directory
+      const text = await response.text();
+      const lines = text.split('\n');
+      const launchOptions = {};
+
+      let currentGame = null;
+      lines.forEach(line => {
+        line = line.trim();
+        if (line.startsWith('[')) {
+          currentGame = line.replace('[', '').replace(']', '');
+        } else if (line.startsWith('launch_option') && currentGame) {
+          launchOptions[currentGame] = line.split('=')[1].trim();
+        }
+      });
+
+      return launchOptions;
+    }
+
+    // Fetch launch options and assign to buttons
+    fetchLaunchOptions().then(launchOptions => {
+      // CS:GO
+      document.getElementById('copy-csgo-launch-option').addEventListener('click', () => {
+        const option = launchOptions['csgo'];
+        if (option) {
+          navigator.clipboard.writeText(option).then(() => {
+            Swal.fire({
+              icon: 'success',
+              title: 'Copied!',
+              text: 'Launch option for CS:GO copied to clipboard!',
+            });
+          });
+        }
+      });
+
+      // Dota 2
+      document.getElementById('copy-dota2-launch-option').addEventListener('click', () => {
+        const option = launchOptions['dota2'];
+        if (option) {
+          navigator.clipboard.writeText(option).then(() => {
+            Swal.fire({
+              icon: 'success',
+              title: 'Copied!',
+              text: 'Launch option for Dota 2 copied to clipboard!',
+            });
+          });
+        }
+      });
+
+      // Download Config - CS:GO
+      document.getElementById('download-config').addEventListener('click', () => {
+        const configContent = launchOptions['csgo'] || '';
+        downloadFile(configContent, 'autoexec.cfg', 'text/plain');
+      });
+
+      // Download Config - Dota 2
+      document.getElementById('download-config-dota').addEventListener('click', () => {
+        const configContent = launchOptions['dota2'] || '';
+        downloadFile(configContent, 'dota2_config.cfg', 'text/plain');
+      });
+    });
+
+    // Function to download file
+    function downloadFile(content, fileName, contentType) {
+      const a = document.createElement('a');
+      const file = new Blob([content], { type: contentType });
+      a.href = URL.createObjectURL(file);
+      a.download = fileName;
+      a.click();
+    }
+  </script>
+
 </body>
+
 </html>

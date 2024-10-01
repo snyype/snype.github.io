@@ -1,64 +1,86 @@
 body {
-    font-family: Arial, sans-serif;
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  .game {
-    display: flex;
-    align-items: center;
-    margin: 20px;
-  }
-  
-  .game img {
-    width: 100px;
-    height: 100px;
-    margin-right: 20px;
-  }
-  
-  .dropdown {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  #downloadButton {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  #showButton {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #0c7747;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  #downloadButton:hover {
-    background-color: #0056b3;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #202124;
+}
 
-  #selectedGameLaunchOption {
-    font-weight: bold;
-    text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    /* Access the color property from the launchOptionsMap */
-    color: var(--selectedGameColor, red); /* Use black as the default color if not specified */
-  }
-  #colorForLaunchOption {
-    font-weight: bold;
-    /* Access the color property from the launchOptionsMap */
-    color: var(--selectedGameColor, red); /* Use black as the default color if not specified */
-  }
-  
-  
+header {
+  background-color: #4285f4;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+section.game {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 20px;
+}
+
+.game img {
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+}
+
+.game-info h2 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.controls {
+  margin-top: 20px;
+}
+
+.dropdown {
+  margin-bottom: 20px;
+}
+
+select,
+button {
+  font-size: 1em;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+select {
+  width: 100%;
+  max-width: 300px;
+}
+
+button {
+  background-color: #4285f4;
+  color: white;
+  border: none;
+}
+
+button:hover {
+  background-color: #357ae8;
+}
+
+#selectedGameText,
+#selectedGameLaunchOption {
+  font-size: 1.2em;
+  color: #555;
+  margin-top: 20px;
+}
