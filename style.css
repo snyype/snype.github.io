@@ -38,16 +38,8 @@ h1 {
   }
 }
 
-@keyframes blink-caret {
-
-  from,
-  to {
-    border-color: transparent;
-  }
-
-  50% {
-    border-color: #ffffff;
-  }
+@keyframes blink {
+  50% { border-color: transparent; }
 }
 
 main {
